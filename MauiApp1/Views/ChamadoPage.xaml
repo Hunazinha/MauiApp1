@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiApp1.Views.ChamadoPage"
-             Title="Chamados"
-             xmlns:viewmodels="clr-namespace:MauiApp1.ViewModels">
+             xmlns:viewmodels="clr-namespace:MauiApp1.ViewModels"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             x:Class="MauiApp1.Views.ChamadosPage"
+             Title="Chamados">
+
     <ContentPage.BindingContext>
         <viewmodels:ChamadosViewModel />
     </ContentPage.BindingContext>
 
-    <TabView>
-        <TabViewItem Text="Pendentes">
+    <toolkit:TabView>
+        <toolkit:TabViewItem HeaderText="Pendentes">
             <CollectionView ItemsSource="{Binding Pendentes}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -24,9 +26,9 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </TabViewItem>
+        </toolkit:TabViewItem>
 
-        <TabViewItem Text="Em Andamento">
+        <toolkit:TabViewItem HeaderText="Em Andamento">
             <CollectionView ItemsSource="{Binding EmAndamento}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -41,9 +43,9 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </TabViewItem>
+        </toolkit:TabViewItem>
 
-        <TabViewItem Text="Finalizados">
+        <toolkit:TabViewItem HeaderText="Finalizados">
             <CollectionView ItemsSource="{Binding Finalizados}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -58,8 +60,8 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </TabViewItem>
-    </TabView>
+        </toolkit:TabViewItem>
+    </toolkit:TabView>
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Novo Chamado" Command="{Binding NavigateToNovoChamadoCommand}" />
